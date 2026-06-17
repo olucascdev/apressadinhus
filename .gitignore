@@ -1,0 +1,22 @@
+# Claude / ferramentas de IA
+.claude/
+
+# HTML salvos manualmente para mapear seletores (são só referência, pesados)
+*.html
+
+# Python (bot/)
+bot/.venv/
+bot/__pycache__/
+bot/**/__pycache__/
+*.pyc
+bot/.env
+bot/auth.json
+bot/debug/
+
+# Go (cli/)
+cli/apressadinhus-config
+cli/*.exe
+
+# Sistema / editor
+.DS_Store
+*.swp
