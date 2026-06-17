@@ -1,0 +1,35 @@
+login_url: "https://sei.ivc.br/index.xhtml"
+ead_courses_url: "https://univc.grupoa.education/plataforma/my-enrollments/courses"
+ead_course_url_template: "https://univc.grupoa.education/plataforma/course/{course_id}"
+
+course_ids:
+  - "5052156"
+  - "4665051"
+
+auth_state_path: "auth.json"
+
+selectors:
+  login_usuario: "#form\\:usuario"
+  login_senha: "#form\\:senha"
+  login_botao: "#form\\:loginBtn\\:loginBtn"
+  abrir_plataforma_a: "#clinkPlataformaA"
+
+  module_card: "a.card-topic"
+  topic_list_item: "div.list-item-topic"
+  exercicios_topic_title: "Exercícios"
+
+  question_wrapper: "div.question"
+  options_container: "ul[role='radiogroup']"
+  option_wrapper: "div.option-wrapper"
+  option_clickable: "div.option-card-render"
+  option_letter: "span.letter-text"
+  option_text: "div.question-option"
+  next_button: "button[aria-label='Passar para a próxima questão']"
+  pagination: "div.progress__pagination"
+
+ai_provider_order:
+  - openai
+  - groq
+  - openrouter
+
+headless: false
