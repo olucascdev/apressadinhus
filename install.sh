@@ -62,5 +62,16 @@ if ! echo "$PATH" | tr ':' '\n' | grep -qx "$BIN_DIR"; then
   echo "  export PATH=\"$BIN_DIR:\$PATH\""
 fi
 
-info "Instalação concluída! Abrindo o configurador..."
-exec "$BIN_DIR/apressadinhus"
+info "Instalação concluída!"
+
+# Quando o instalador é rodado via "curl ... | bash", o stdin do script é o
+# próprio pipe do curl, não o terminal — então não dá para abrir um CLI
+# interativo aqui (ele leria EOF na hora). Nesse caso, tentamos reabrir o
+# terminal do usuário (/dev/tty); se não der, só orientamos a rodar depois.
+if [ -t 1 ] && [ -r /dev/tty ]; then
+  info "Abrindo o configurador..."
+  exec "$BIN_DIR/apressadinhus" < /dev/tty
+else
+  echo
+  echo "Rode \"apressadinhus\" para abrir o configurador (pode ser preciso abrir um novo terminal ou rodar: source ~/.bashrc)."
+fi
