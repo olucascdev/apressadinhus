@@ -2,8 +2,8 @@
 # Instalador do Apressadinhus.
 #
 # Clona o repositório (ou atualiza, se já existir), prepara o ambiente
-# Python do bot e deixa o comando `apressadinhus` disponível no PATH,
-# já abrindo o configurador no final.
+# Python do bot e deixa o comando `apressadinhus` disponível no PATH.
+# Depois de instalar, rode `apressadinhus` para abrir o configurador.
 #
 # Uso:
 #   curl -fsSL https://raw.githubusercontent.com/olucascdev/apressadinhus/main/install.sh | bash
@@ -63,15 +63,9 @@ if ! echo "$PATH" | tr ':' '\n' | grep -qx "$BIN_DIR"; then
 fi
 
 info "Instalação concluída!"
-
-# Quando o instalador é rodado via "curl ... | bash", o stdin do script é o
-# próprio pipe do curl, não o terminal — então não dá para abrir um CLI
-# interativo aqui (ele leria EOF na hora). Nesse caso, tentamos reabrir o
-# terminal do usuário (/dev/tty); se não der, só orientamos a rodar depois.
-if [ -t 1 ] && [ -r /dev/tty ]; then
-  info "Abrindo o configurador..."
-  exec "$BIN_DIR/apressadinhus" < /dev/tty
-else
-  echo
-  echo "Rode \"apressadinhus\" para abrir o configurador (pode ser preciso abrir um novo terminal ou rodar: source ~/.bashrc)."
-fi
+echo
+echo "Agora rode:"
+echo
+echo "  apressadinhus"
+echo
+echo "(se o comando não for encontrado, abra um novo terminal ou rode: source ~/.bashrc)"
