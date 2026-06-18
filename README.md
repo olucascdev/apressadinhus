@@ -35,13 +35,15 @@ apressadinhus/
 
 ## Instalação rápida
 
-Se você já tem `git`, `go` e `python3` instalados, um único comando configura tudo (clona o repositório, monta o ambiente Python, instala o Chromium do Playwright e builda o CLI):
+Se você já tem `git`, `go` e `python3` instalados, um único comando configura tudo (clona o repositório, monta o ambiente Python, instala o Chromium do Playwright, builda o CLI) **e já abre o configurador**:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/olucascdev/apressadinhus/main/install.sh | bash
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/olucascdev/apressadinhus/main/install.sh)"
 ```
 
-Isso deixa o comando `apressadinhus` disponível no seu terminal (em `~/.local/bin`). Depois, é só rodar (em um terminal novo, se for a primeira vez):
+> Use exatamente esse formato (`bash -c "$(curl ...)"`), não `curl ... | bash` — com pipe o terminal interativo do final não funciona (dá erro de EOF), porque o stdin fica ocupado pelo próprio curl.
+
+Isso deixa o comando `apressadinhus` disponível no seu terminal (em `~/.local/bin`) para usar depois sempre que quiser:
 
 ```bash
 apressadinhus
