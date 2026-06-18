@@ -1,6 +1,9 @@
 # Claude / ferramentas de IA
 .claude/
 
+# notas de planejamento pessoais
+/docs/
+
 # HTML salvos manualmente para mapear seletores (são só referência, pesados)
 *.html
 
